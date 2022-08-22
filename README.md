@@ -2,7 +2,10 @@
 Install MQTT broker on K8s and consume data with telegraf and insert data into InfluxDB
 
 # Source
-git clone https://github.com/t3n/helm-charts.git
+MQTT helm charts taken from  https://github.com/t3n/helm-charts.git
+
+clone the helm charts 
+``` https://github.com/chennv4/mqtt-telegraf-helm-charts.git ```
 
 # Create Namespace
 ```kubectl create namespace mqtt```

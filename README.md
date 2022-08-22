@@ -13,15 +13,7 @@ clone the helm charts
 # Install MQTT Broker
 ```helm upgrade --install mqtt-broker mosquitto -n mqtt```
 
-# Publish message 
-```mosquitto_pub -h 10.246.153.250 -p 1883 -t sensors -m "{\"sensor-id\": 2, \"type\": \"temp-sensor\", \"value\": 33.29}" -q 0 -i mqtt-client-id -d```
-
-# Consume or Subscribe messages
-```mosquitto_sub -h 10.246.153.250  -v -t 'sensors'```
-
-
-
-### Telegraf for reading MQTT messages and inserting into InfluxDB
+# Telegraf for reading MQTT messages and inserting into InfluxDB
 Open telegraf-config.yaml and configure MQTT broker, topic details
 ```
 [[inputs.mqtt_consumer]]
@@ -45,3 +37,9 @@ kubectl apply -f telegraf-config.yaml -n mqtt
 kubectl apply -f telegraf-secrets.yaml -n mqtt
 kubectl apply -f telegraf-deployment.yaml -n mqtt
 ```
+# Publish message 
+```mosquitto_pub -h 10.246.153.250 -p 1883 -t sensors -m "{\"sensor-id\": 2, \"type\": \"temp-sensor\", \"value\": 33.29}" -q 0 -i mqtt-client-id -d```
+
+# Consume or Subscribe messages
+```mosquitto_sub -h 10.246.153.250  -v -t 'sensors'```
+
